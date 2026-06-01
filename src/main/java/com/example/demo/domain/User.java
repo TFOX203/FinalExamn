@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -18,6 +19,7 @@ import lombok.Data;
 @Entity
 //@Data annotation indicates Lombok library that generates all the getters and setters for this class
 @Data
+@Table(name = "Users")
 @AllArgsConstructor
 public class User {
 	
@@ -45,9 +47,12 @@ public class User {
 	private String adress;
 	
 	
-	
+	//Constructors
 	public User(long id) {
 		this.id = id;
+	}
+
+	public User() {
 	}
 	
 }
