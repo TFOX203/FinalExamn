@@ -9,11 +9,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.domain.User;
 import com.example.demo.service.UserService;
+
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
 /*
  *
@@ -36,6 +39,16 @@ public class UserController {
 	@GetMapping("/{id}")
 	public User getUser(@PathVariable long id) {
 		return userService.getUser(id);
+	}
+	
+	/**
+	 * @PostMapping is used to map a handler to a unique post request
+	 * @param user
+	 * @return
+	 */
+	@PostMapping
+	public User createUser(@RequestBody User user) {
+		return userService.saveUser(user);
 	}
 	
 	@GetMapping("/all")
