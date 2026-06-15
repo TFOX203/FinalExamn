@@ -42,8 +42,11 @@ public class Product {
     private String category;
 
     // Campos extra del proyecto personal
-    private Integer year;           // año del modelo
-    private Integer horsepower;     // caballos de potencia (CV)
-    private String transmission;    // "Manual" o "Automático"
-    private String color;           // color del coche
+    @Column(name = "model_year")   // ✅ "year" es palabra reservada en H2
+    private Integer year;
+
+    private Integer horsepower;    // caballos de potencia (CV)
+    private String transmission;   // "Manual" o "Automático"
+    private String color;          // color del coche
+    private String imageUrl;       // URL de la imagen del vehículo
 }
